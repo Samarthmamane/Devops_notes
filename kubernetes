@@ -1,1 +1,637 @@
+#########################
+Day 20 : 11th August 2025
+#########################
+		
+		
+	Container Orchestration using Kubernetes ::::
+	
+	- Kubernetes!
+	
+	Docker Container : 
+	
+	AWS :	ECS/ECR/EKS
+	
+	Azure : ACS/ACR/AKS
+	
+	GCP :	GCE/GCR/GKE
 
+	- Kubernetes!
+	
+		- It is a Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.		
+		
+		- App Config file - Manifest file - *.yaml / *.json		
+			
+	
+	- Kubernetes Architecture :::
+		
+		Based on:
+		
+			Kubernetes_Control_Plane/Master 
+				- Kubernetes_WorkerNode1,2,3,4,5
+	
+	
+	- Kubernetes Architecture Components :::
+	
+	- Terminologies :::
+	
+	- Kubernetes Concepts :::
+
+	
+#########################
+Day 21 : 12th August 2025
+#########################	
+	
+	- Kubernetes Architecture :::
+		
+		Based on:
+		
+			Kubernetes_Control_Plane/Master 
+				- Kubernetes_WorkerNode1,2,3,4,5	
+
+		
+	- Kubernetes!
+	
+		- It is a Open-Source Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.
+		- Self-Healing
+		
+		- App Config file - Manifest file - *.yaml / *.json		
+
+		
+	- Kubernetes Architecture Components :::	
+	
+		- API Server 			# It act as an interface between the User and Kubernetes Master
+		
+		- ETCD					# Is a single point of source for Kubernetes
+		
+		- Scheduler				# Is used to identify the healthy worknode for the pods deployment 
+		
+		- Controller Manager	# To ensure the pods are running in its desired state.
+								# Perform Self-Healing 
+								# Ensure High Availability 
+		
+		
+		- Kubelet				# Is a Kubernetes Agent, that actually deploy the pods 
+
+		- CRI - Container Runtime Interface (Container-D)
+								# Is to connect to Container Registry and download the Container Images 
+								
+		- Kube-Proxy 			# To enable Pod Networking.		
+								# Assign pod IP Address based on the Network Plugins 
+	
+	
+
+	- Terminologies & Kubernetes Concepts :::
+	
+	
+		- Kubernetes_Cluster	# Is a collection of Kubernetes Worker Nodes 
+
+		- Non-Prod Environments :::					=====>				Production Environments :::						
+			
+			Dev 
+			
+			Build 
+			
+			Test :
+				QA 
+				
+				UAT 							==============>				Production Servers1,2,3,4,5
+		
+		
+
+		
+			- Kubernetes_Master :
+			
+					- Kubernetes_WorkerNode1
+					- Kubernetes_WorkerNode2
+					- Kubernetes_WorkerNode3
+					- Kubernetes_WorkerNode4
+					- Kubernetes_WorkerNode5
+				
+		- Pods 					# Atomic Unit of Schedule
+								# Used to Execute Micro-Services 
+								
+		- Kubectl				# Is a command line utility to interact with Kubernetes Master 
+		
+		- Kubernetes Objects :
+		
+			- Pods 					# Atomic Unit of Schedule
+									# Used to Execute Micro-Services 		
+									
+			- Deployment Controller Objects :::
+			
+				- Replicaset				
+				- Deployment 
+				
+			- Kubernetes Services :::
+			
+				- Cluster-IP Service 
+				- NodePort Services 
+				- Load Balancer 
+				
+			- Kubernetes Volumes ::
+			
+				- EmptyDir 
+				- Hostpath Volume 
+				- Persistant Volume 
+				- Persistant Volume Claim
+				
+				
+	
+	- Working with Kubernetes
+	
+		- Install and Configure Kubernetes Cluster.
+
+			- Kubernetes_Control_Plane/Master (VM)
+			
+				- Kubernetes_WorkerNode1 (VM)
+			
+				- Kubernetes_WorkerNode2 (VM)	
+				
+
+	Open-Source Kubernetes :::
+	
+		https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/
+		
+		
+		Kubernetes_Master			(VM)
+			Kubernetes_WorkNode1	(VM)
+			Kubernetes_WorkNode2	(VM)
+			
+			
+		Minikube 		--> 	1 Node Configuration
+			VM -> 
+			
+		Kubeadm -->
+		
+		
+	Installation of Kubernetes using Kubeadm :::	
+	
+		1. Launch 3 VMs on AWS Cloud (Ubuntu v22.04) --> (1 Master Node, 2 WorkerNodes)
+		
+		In all the Nodes(i.e., Master Node and WorkerNodes):
+		
+			2. Allow all traffic for all the nodes - just for this demo
+			3. Change the HostName of all the Nodes
+			4. Disable swap configuration in all the nodes
+			5. Install Docker in all the nodes
+			6. Install CRI - 'Container-D' in all the nodes
+			7. Install Kubeadm,kubelet,kubectl 
+			8. Enable Kubelet	
+		   
+		Only on Master Node:
+		
+			9. Execute Kubeadm Init Command 		# To initialize Kubernetes Master Node
+			10. Enable user Access to Kubernetes
+			11. Install flannel Network plugins for kubeproxy
+
+		Only on WorkerNodes:		
+		
+			12. Execute Kubeadm Join Command 		# To attach the Worknodes with Kubernetes Master Node.
+			
+			
+Next :::
+				
+	- Working with Kubernetes Objects :::
+	
+
+#########################
+Day 22 : 13th August 2025
+#########################	
+
+	- Working with Kubernetes Objects
+	
+		- Kubernetes Objects :
+		
+			- Pods 					# Atomic Unit of Schedule
+									# Used to Execute Micro-Services 		
+									
+			- Deployment Controller Objects :::
+			
+				- Replicaset				
+				- Deployment 
+				
+			- Kubernetes Services :::
+			
+				- Cluster-IP Service 
+				- NodePort Services 
+				- Load Balancer 
+				
+			- Kubernetes Volumes ::
+			
+				- EmptyDir 
+				- Hostpath Volume 
+				- Persistant Volume 
+				- Persistant Volume Claim
+				
+			- Namespace!
+			
+				
+	- Namespace!
+	
+		- Logical Partitioning of Kubernetes Cluster
+		- Namespaces can be created based on Environments, Application Team, Services/Objects 
+				
+	
+		Non-Prod :	-> Dev/QA/UAT 
+		
+		Kubernetes_Master			(VM)
+			Kubernetes_WorkNode1	(VM)
+			Kubernetes_WorkNode2	(VM)
+
+	
+		Prod :
+		
+		Kubernetes_Master			(VM)
+			Kubernetes_WorkNode1	(VM)
+			Kubernetes_WorkNode2	(VM)
+			
+	
+	- Pods :
+	
+	
+		NodePort Service Create Port between - 30000 to 32767
+				
+		Roles :
+		
+			Kubernetes Developers 
+			
+			Kubernetes Administrators 
+			
+			Kubernetes Security Administrators 
+			
+			
+			WorkerNode1,2,3,4,5,6,7,8,9,10 
+			
+				--> 1,3,5,7,9 ==> as Target group 
+				
+				--> 1 	==> Target Node 
+
+	- Deployment Controller Objects :::
+	
+		- Replicaset				
+		- Deployment 
+		
+	Controller Object :::
+		ReplicaSet 
+		Deployment 
+
+
+	ReplicaSet :::
+	
+		--> Replicaset is used to execute the specific no. of pods in the cluster.
+		--> Replicaset uses the Set Based Operator
+		--> Used to replicate the pods and able to scale up/down
+		--> The Replicasets will be automatically created, while creating Deployment Controller Object.
+	
+	Deployment Controller Object :::
+	
+		--> It is used to deploy the pods and ensure high availability of pods by creating pod replicas 
+		--> 1. Create Muliple instance/replicas/copies of pods 
+			2. Used to Scale-Up / Scale-Down the Pods 
+			3. Used to Upgrade the application pods 
+			4. Used to Down-grade/roll-back the application pods
+		--> The upgrade/down-grade of application pods can be done without any downtime. 
+		--> To achieve zero-downtime during upgrade/down-grade, By Default, it used Rolling-Update Deployment Strategy.
+		
+
+	App_snapshot_v1.0		--->	App_snapshot_img:v1.0	==> Published to Dockerhub.
+	App_snapshot_v1.1		--->	App_snapshot_img:v1.1	==> Published to Dockerhub.	
+	App_snapshot_v1.2		--->	App_snapshot_img:v1.2	==> Published to Dockerhub.	
+	
+	
+	App_snapshot_v1.0		--->	App_snapshot_img:v1.0	==> Published to Dockerhub.
+	
+	
+	Pod1 ==> App_snapshot_img:v1.0	Running!
+	
+	
+	Deploy the Pods using Deployment Controller Object :
+	
+	
+		- Create Deployment Object
+
+		- Replicaset 					Replica = 3.
+		
+		- Pods Instances 				To Create 3 replicas of pod
+		
+	
+	
+	Pod1	=	App_snapshot_img:v1.0
+	
+	Pod2 	=	App_snapshot_img:v1.0
+	
+	Pod3 	=	App_snapshot_img:v1.0
+	
+	
+	
+	Upgrade Application :		using Rolling-Update Deployment Strategy.
+	
+	
+		App_snapshot_v1.0		--->	App_snapshot_img:v1.1	==> Published to Dockerhub.	
+		
+		
+		
+	Pod1	=	App_snapshot_img:v1.0						====>			App_snapshot_img:v1.1	
+	
+	Pod2 	=	App_snapshot_img:v1.0						====>			App_snapshot_img:v1.1
+	
+	Pod3 	=	App_snapshot_img:v1.0						====>			App_snapshot_img:v1.1
+	
+	
+	Scale-Up/Scale-Down :::
+	
+		- Increase/Decrease the Replicas of Pods 
+
+
+
+		Web_Application :::
+		
+			--> Replica = 100 		==> 	1000 Users/Requests 			
+
+				Replica	= 500		===> 	5000 Users/Requests		
+
+
+			online Reservation System 
+			
+			amazon.in 
+			
+			
+			Pod Replicas  			>		Taken care by Kubernetes Deployment Controller Object 			
+			
+			Node Replicas 			>		Add More nodes to the cluster (Horizontal Scaling)
+			
+			Upgrade the Existing Nodes 	
+									> 	Eg.: t2.micro to t2.medium -> Update the Node - Vertical Scaling 			
+		
+		Kubernetes_Master			(VM)
+			Kubernetes_WorkNode1	(VM)
+			Kubernetes_WorkNode2	(VM)
+		
+
+
+
+#########################
+Day 23 : 18th August 2025
+#########################
+
+	Working with Deployment Controller Objects!
+	
+		- Manifest file 
+		
+			- Defines the properties of Deployment Controller Object!
+			
+			
+			Output :
+			
+				- Deployment Object 
+				
+				- ReplicaSet 
+				
+				- Pod Instances!	
+
+
+	- Kubernetes Services :::
+	
+		- Cluster-IP Service 			# Default Service!
+		- NodePort Services 
+		- Load Balancer 
+		
+		- Ingress Controller!
+		
+			- Used to reduce the Load Balancer!
+		
+		
+			- Routing!
+			
+			
+		- Simple Routing 				# meant for static web page 
+		
+		- Host Based Routing 
+		
+		- Path Routing!
+		
+		- Query/Parameter Based Routing!
+		
+		Eg.: 
+		
+			www.google.com !							Load Balancer URL 
+			
+			
+			www.mail.google.com 						# Host Based Routing!			
+			www.maps.google.com 						# Host Based Routing!			
+			www.drive.google.com 						# Host Based Routing!			
+			www.translate.google.com 					# Host Based Routing!
+
+	
+		www.mail.google.com/inbox 						# Path Based Routing!		
+		www.mail.google.com/sent 						# Path Based Routing!		
+		www.mail.google.com/trash 						# Path Based Routing!		
+		www.mail.google.com/compose 					# Path Based Routing!		
+		
+		www.mail.google.com/inbox 						# Path Based Routing!		
+		
+		www.mail.google.com/inbox/email=xyz@gmail.com	# Query/Parameter Based Routing
+		
+
+
+
+#########################
+Day 24 : 19th August 2025
+#########################
+
+	- Kubernetes Volumes ::
+	
+		- EmptyDir 
+		
+		- Hostpath Volume 					# Can be compared with Docker Volume!
+		
+		- Persistant Volume 
+		
+		- Persistant Volume Claim
+			
+				
+	- Namespace!
+	
+		- Logical Partitioning of Kubernetes Cluster
+		- Namespaces can be created based on Environments, Application Team, Services/Objects 
+		
+		- Working with Namespaces 
+Eg.: 
+
+	kubectl create namespace dev 
+	
+	kubectl get ns 
+	
+root@kmaster-node:~/kubernetes# cat nginx-devpod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  namespace: dev
+  labels:
+    app: nginx
+    tier: dev
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+		
+	- Integrate Kubernetes with Jenkins! 
+	
+		- CICD ---> 
+		
+
+
+
+		- Persistant Volume 
+		
+		- Persistant Volume Claim
+		
+		
+	Pod1	=	App_snapshot_img:v2.0						====>			App_snapshot_img:v2.0	
+	
+	Prod server1,2,3,4,5 : LIVE Passive Server	App_snapshot_img:v1.0
+	
+	
+	Replica:
+	
+	Prod server1,2,3,4,5 : App_snapshot_img:v2.0 - Active Server LIVE
+	
+	
+	Namespace : Active-prod-ns  --> App_snapshot_img:v1.0
+	
+				Active-prod-ns1  --> App_snapshot_img:v2.0
+		
+		
+
+	Integration of Kubernetes with Jenkins!
+	
+	Servers/Tools :
+	
+		Jenkins_Master				# git/jdk/jenkins
+			Jenkins_SlaveNode		# git/jdk/maven/docker
+			
+		Kubernetes_Master			# All Kubernetes Components
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+	
+
+CICD Pipeline using Kubernetes :::
+	
+pipeline {
+    agent { label 'slave1' }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout from github repository'
+				git 'https://github.com/PL-DevOps-GenAI-0625/java-webapp-project.git'
+            }
+        }
+		
+        stage('Application Build') {
+            steps {
+                echo 'Perform Maven Application Build'
+                sh 'mvn clean package'
+            }
+        }
+		
+        stage('Build Docker Image') {
+            steps {
+
+				sh "docker build -t loksaieta/pl-javawebappimg ."
+				
+            }
+        }
+		
+		stage('Login2DockerHub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		
+		stage('Publish_to_Docker_Registry') {
+			steps {
+				sh "docker push loksaieta/pl-javawebappimg"
+			}
+		}
+
+		stage('Deploy to Kubernetes') {
+			steps {
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes-nonprod', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kdeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+			}
+		}
+    }
+}	
+			
+			
+	Using Publish over SSH Plugin, Attach Kubernetes Master to Jenkins Master 
+	
+			- HostName,UserName,SSH_Keys
+
+vi kdeploy.yaml 
+	
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loksai-eta-deploy
+  labels:
+    app: loksai-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: loksai-eta-app
+  template:
+    metadata:
+      labels:
+        app: loksai-eta-app
+    spec:
+      containers:
+      - name: loksai-eta-container
+        image: loksaieta/pl-javawebappimg
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loksai-eta-np-service
+  labels:
+    app: loksai-eta-app
+spec:
+  selector:
+    app: loksai-eta-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080		
+	
+		
+		
+				
+		
+		
+		
+	
